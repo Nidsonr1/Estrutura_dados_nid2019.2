@@ -1,0 +1,41 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+
+int selection_sort(int vetor[],int n){
+  int max, i, j, aux;
+  for(i = 0; i < n; i++){
+    max = i;
+    for(j = i + 1; j < n; j++){
+      if(vetor[j] > vetor[max]){
+        max = j;
+      }
+    }
+    if(max != i){
+      aux = vetor[i];
+      vetor[i] = vetor[max];
+      vetor[max] = aux;
+    }
+  }
+  printf("\n");
+  printf("Valores ordenados: \n");
+  for(i = 0; i < n; i++){
+    printf("%d ", vetor[i]);
+  }
+}
+
+
+
+
+int main(){
+  int n, cont;
+
+  printf("Insira a quantidade de Elementos: ");
+  scanf("%d", &n);
+
+  int vetor[n];
+  for(cont = 0; cont < n; cont++){
+    scanf("%d", &vetor[cont]);
+  }
+  selection_sort(vetor, n);
+}
